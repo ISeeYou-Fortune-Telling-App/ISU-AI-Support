@@ -30,7 +30,7 @@ COPY .env* ./
 # Tạo các thư mục cần thiết cho ứng dụng
 # rag_storage: lưu trữ indexes và embeddings
 # logs: lưu trữ log files (nếu cần)
-RUN mkdir -p /app/rag_storage /app/logs
+RUN mkdir -p /app/rag_storage /app/logs && chmod -R 777 /app/data
 
 # Expose port 8000 để truy cập API từ bên ngoài
 EXPOSE 8000

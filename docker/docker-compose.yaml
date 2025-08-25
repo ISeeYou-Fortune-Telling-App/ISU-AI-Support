@@ -25,8 +25,8 @@ services:
     
     # Mount volumes để chia sẻ dữ liệu giữa host và container
     volumes:
-      # Mount thư mục data (read-only) - chứa file data.txt
-      - ../data:/app/data:ro
+      # Mount thư mục data (read-write) - chứa file data.txt
+      - ../data:/app/data
       
       # Mount persistent storage cho RAG indexes và embeddings
       # Volume này sẽ được giữ lại khi restart container
