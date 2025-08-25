@@ -1,19 +1,56 @@
+# Thông tin về Napoleon Bonaparte (Tiếng Việt & English)
+
+## Giới thiệu chung / General Introduction
+
+Xin chào! Tôi có thể giúp bạn tìm hiểu về Napoleon Bonaparte - một trong những nhân vật quan trọng nhất trong lịch sử.
+
+Napoleon Bonaparte (15 tháng 8 năm 1769 – 5 tháng 5 năm 1821) là một nhà lãnh đạo quân sự và chính trị người Pháp, người đã trở nên nổi tiếng trong thời kỳ Cách mạng Pháp và các cuộc chiến tranh liên quan.
+
 Napoleon Bonaparte (15 August 1769 – 5 May 1821) was a French military and political leader who rose to prominence during the French Revolution and its associated wars.
 
-Early life and rise:
+## Cuộc đời sớm và sự trỗi dậy / Early life and rise:
+
+Napoleon sinh ra trên đảo Corsica. Ông được huấn luyện làm sĩ quan pháo binh tại đại lục Pháp. Trong những năm hỗn loạn của Cách mạng Pháp, ông được công nhận vì kỹ năng quân sự và khả năng lãnh đạo, bao gồm các chiến dịch thành công ở Ý.
+
 Napoleon was born on the island of Corsica. He trained as an artillery officer in mainland France. During the turbulent years of the French Revolution, he gained recognition for his military skill and leadership, including successful Italian campaigns.
 
-Emperor and reforms:
+## Hoàng đế và các cải cách / Emperor and reforms:
+
+Năm 1804, Napoleon tự đặt vương miện lên đầu để trở thành Hoàng đế người Pháp. Ông thực hiện các cải cách rộng rãi trong quản trị, luật pháp và giáo dục. Bộ luật Napoleon (một bộ luật dân sự) đã ảnh hưởng đến các hệ thống pháp luật trên khắp thế giới.
+
 In 1804, Napoleon crowned himself Emperor of the French. He implemented wide-ranging reforms across administration, law, and education. The Napoleonic Code (a civil code) influenced legal systems across the world.
 
-Military campaigns and exile:
+## Các chiến dịch quân sự và lưu đày / Military campaigns and exile:
+
+Napoleon xây dựng một đế chế lớn thông qua chinh phục quân sự khắp châu Âu nhưng phải đối mặt với sự phản kháng mạnh mẽ. Sau chiến dịch thảm khốc ở Nga năm 1812 và những thất bại tiếp theo, ông thoái vị năm 1814 và bị lưu đày đến đảo Elba. Ông trốn thoát và trở lại nắm quyền trong Một trăm ngày năm 1815, nhưng bị đánh bại tại Trận Waterloo.
+
 Napoleon built a large empire through military conquest across Europe but faced stiff opposition. After the disastrous Russian campaign in 1812 and subsequent defeats, he abdicated in 1814 and was exiled to the island of Elba. He escaped and returned to power for the Hundred Days in 1815, but was defeated at the Battle of Waterloo.
 
-Death:
+## Cái chết / Death:
+
+Sau trận Waterloo, Napoleon bị người Anh lưu đày đến hòn đảo xa xôi Saint Helena ở Nam Đại Tây Dương, nơi ông qua đời vào ngày 5 tháng 5 năm 1821. Nguyên nhân cái chết đã được tranh luận; các báo cáo đương thời liệt kê ung thư dạ dày, mặc dù các lý thuyết khác như ngộ độc asen cũng được đề xuất.
+
 After Waterloo, Napoleon was exiled by the British to the remote island of Saint Helena in the South Atlantic, where he died on 5 May 1821. The cause of death has been debated; contemporary reports listed stomach cancer, though other theories such as arsenic poisoning have been suggested.
 
-Legacy:
+## Di sản / Legacy:
+
+Napoleon được nhớ đến vì thiên tài quân sự, các cải cách hành chính và những cải cách pháp lý lâu dài của Bộ luật Napoleon, cũng như vì những biến động chính trị và xã hội mà các cuộc chinh phục của ông gây ra ở châu Âu.
+
 Napoleon is remembered for his military genius, administrative reforms, and the lasting legal reforms of the Napoleonic Code, as well as for the political and social upheaval his conquests caused in Europe.
+
+## Câu hỏi thường gặp / Frequently Asked Questions:
+
+Q: Napoleon là ai?
+A: Napoleon Bonaparte là hoàng đế người Pháp (1769-1821), một trong những nhà lãnh đạo quân sự vĩ đại nhất lịch sử.
+
+Q: Napoleon sinh năm nào?
+A: Napoleon sinh năm 1769 trên đảo Corsica.
+
+Q: Napoleon chết khi nào?
+A: Napoleon qua đời năm 1821 trên đảo Saint Helena.
+
+Q: Trận Waterloo là gì?
+A: Trận Waterloo (1815) là trận đánh cuối cùng dẫn đến sự sụp đổ hoàn toàn của Napoleon.
 
 References:
 This text is a brief summary intended for local indexing and RAG testing. For full biographies, consult reputable history sources.
