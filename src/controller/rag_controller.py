@@ -17,12 +17,15 @@ class RAGController:
     Tách biệt logic điều khiển với logic nghiệp vụ
     """
     
-    def __init__(self, data_path: str = None):
-        # Use environment variable or default path that works in Docker
+    def __init__(self, data_path: str = None, data_path_json: str = None):
+        # Use environment variables or default paths that work in Docker
         if data_path is None:
             data_path = os.getenv("DATA_PATH", "/app/data/data.txt")
-        self.rag_service = RAGService(data_path)
-        LogUtil.log_info("RAG Controller initialized", "CONTROLLER")
+        if data_path_json is None:
+            data_path_json = os.getenv("DATA_PATH_JSON", "/app/data/data.json")
+        
+        self.rag_service = RAGService(data_path, data_path_json)
+        LogUtil.log_info(f"RAG Controller initialized with {data_path} and {data_path_json}", "CONTROLLER")
 
     async def initialize_system(self):
         """
