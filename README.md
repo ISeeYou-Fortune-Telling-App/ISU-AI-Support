@@ -238,10 +238,14 @@ make reindex
 
 ### 🎨 Các chế độ tìm kiếm
 
-- **`naive`**: Tìm kiếm vector đơn giản, nhanh nhất
-- **`local`**: Tìm kiếm cục bộ, cân bằng tốc độ/chất lượng  
-- **`global`**: Tìm kiếm toàn cục, chậm nhưng đầy đủ nhất
-- **`mix`**: Kết hợp vector + graph, **được khuyến nghị**
+
+| Chế độ (Mode) | Mục đích & Cách thức                                                                                                                                                                                                                                      | Ví dụ truy vấn phù hợp                                                                                        |
+| :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------ |
+| **`/naive`**  | **Truy xuất ngây thơ (Naive Retrieval):** Sử dụng phương pháp truy xuất vector đơn giản, tìm kiếm các đoạn văn bản có embedding gần giống nhất với truy vấn. Phù hợp cho câu hỏi trực tiếp, có từ khóa rõ ràng.                                           | "Mật độ xây dựng của dự án ABC là bao nhiêu?"                                                                 |
+| **`/local`**  | **Truy xuất cục bộ (Local Retrieval):** Tập trung vào việc tìm kiếm các **thực thể (entity)** và **mối quan hệ (relation)** cụ thể trong đồ thị tri thức. Tận dụng cấu trúc đồ thị để tìm câu trả lời chính xác cho các sự kiện hoặc dữ liệu có cấu trúc. | "Công ty XYZ thành lập năm nào?"                                                                              |
+| **`/global`** | **Truy xuất toàn cục (Global Retrieval):** Hướng đến các truy vấn **trừu tượng** hoặc **tổng hợp**, yêu cầu tóm tắt, phân tích hoặc kết nối thông tin từ nhiều nguồn hoặc chủ đề khác nhau trong toàn bộ kho dữ liệu.                                     | "Tóm tắt những rủi ro chính trong báo cáo tài chính năm nay."                                                 |
+| **`/hybrid`** | **Truy xuất lai (Hybrid Retrieval):** Kết hợp ưu điểm của cả `local` và `global`. Thường là chế độ **mặc định** và được khuyến nghị vì nó cân bằng được độ chính xác cho chi tiết và sự toàn diện cho bức tranh tổng thể.                                 | "Tác động của lạm phát đến hiệu suất cổ phiếu ngành công nghệ?"                                               |
+| **`/mix`**    | **Truy xuất hỗn hợp (Mix Retrieval):** Tương tự như `hybrid`, đây là một chiến lược kết hợp để tận dụng các điểm mạnh của nhiều phương pháp truy xuất khác nhau nhằm mang lại kết quả tốt nhất.                                                           | "Nguyên nhân và ảnh hưởng của sự kiện [X] là gì?" (vừa cần chi tiết nguyên nhân, vừa cần tổng quan ảnh hưởng) |
 
 ## 🔧 Troubleshooting
 
