@@ -12,6 +12,8 @@ python-dotenv
 pytest
 # fastapi - tạo website/API để người dùng có thể gọi các chức năng qua internet
 fastapi
+# python-multipart - xử lý file upload trong FastAPI
+python-multipart
 # uvicorn[standard] - máy chủ web để chạy ứng dụng FastAPI
 uvicorn[standard]
 # requests - gửi yêu cầu HTTP đến các website/API khác

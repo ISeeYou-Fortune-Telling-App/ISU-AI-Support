@@ -139,7 +139,7 @@ class RAGService:
 
     async def _index_json_file(self, rag: LightRAG, file_path: str) -> None:
         """
-        Đánh chỉ mục file JSON bằng cách chuyển đổi thành text readable
+        Đánh chỉ mục file JSON bằng cách chuyển đổi thành text
         
         Args:
             rag: LightRAG instance
@@ -147,10 +147,10 @@ class RAGService:
         """
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
-                json_data = json.load(f)
+                json_text = f.read()  # Đọc trực tiếp text thay vì parse JSON
         
-            # Sử dụng ainsert để index text đã convert
-            await rag.ainsert(input=json_data, file_paths=[file_path])
+            # Đánh chỉ mục text JSON
+            await rag.ainsert(input=json_text)
             
         except Exception as e:
             print(f"Error indexing JSON file {file_path}: {e}")
@@ -164,17 +164,10 @@ class RAGService:
         
         for file_path in self.data_files:
             try:
-                if file_path.endswith('.json'):
-                    # Xử lý file JSON
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        json_data = json.load(f)
-                    readable_text = self._convert_json_to_readable_text(json_data)
-                    all_text.append(f"=== Data từ {os.path.basename(file_path)} ===\n{readable_text}\n")
-                else:
-                    # Xử lý file text thường
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        content = f.read()
-                    all_text.append(f"=== Data từ {os.path.basename(file_path)} ===\n{content}\n")
+                # Đọc tất cả files như text, không phân biệt JSON hay text
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                all_text.append(f"=== Data từ {os.path.basename(file_path)} ===\n{content}\n")
                     
             except Exception as e:
                 print(f"Failed to load {file_path} for fallback: {e}")
@@ -227,3 +220,75 @@ class RAGService:
             "data_path": self.data_path,  # Backward compatibility
             "has_fallback_text": self.raw_text is not None
         }
+
+    async def update_data_txt(self, file_content: bytes, force_reindex: bool = True) -> dict:
+        """
+        Cập nhật file data.txt với nội dung mới
+        
+        Args:
+            file_content: Nội dung file mới (bytes)
+            force_reindex: Có tự động reindex sau khi update không
+            
+        Returns:
+            dict: Kết quả của quá trình cập nhật
+        """
+        try:
+            # Ghi nội dung mới vào data.txt
+            with open(self.data_path, 'wb') as f:
+                f.write(file_content)
+            
+            print(f"Updated data.txt with {len(file_content)} bytes")
+            
+            # Tự động reindex nếu được yêu cầu
+            if force_reindex:
+                await self.initialize(force_reindex=True)
+                
+            return {
+                "status": "success",
+                "message": f"Successfully updated data.txt",
+                "file_size": len(file_content),
+                "reindexed": force_reindex
+            }
+            
+        except Exception as e:
+            print(f"Error updating data.txt: {e}")
+            return {
+                "status": "error", 
+                "message": f"Failed to update data.txt: {str(e)}"
+            }
+
+    async def update_data_json(self, file_content: bytes, force_reindex: bool = True) -> dict:
+        """
+        Cập nhật file data.json với nội dung mới
+        
+        Args:
+            file_content: Nội dung file mới (bytes)
+            force_reindex: Có tự động reindex sau khi update không
+            
+        Returns:
+            dict: Kết quả của quá trình cập nhật
+        """
+        try:
+            # Ghi nội dung mới vào data.json
+            with open(self.data_path_json, 'wb') as f:
+                f.write(file_content)
+            
+            print(f"Updated data.json with {len(file_content)} bytes")
+            
+            # Tự động reindex nếu được yêu cầu
+            if force_reindex:
+                await self.initialize(force_reindex=True)
+                
+            return {
+                "status": "success",
+                "message": f"Successfully updated data.json",
+                "file_size": len(file_content),
+                "reindexed": force_reindex
+            }
+            
+        except Exception as e:
+            print(f"Error updating data.json: {e}")
+            return {
+                "status": "error",
+                "message": f"Failed to update data.json: {str(e)}"
+            }

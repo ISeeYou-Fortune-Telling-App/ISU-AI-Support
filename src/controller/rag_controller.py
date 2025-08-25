@@ -139,6 +139,52 @@ class RAGController:
                 detail=f"Error reindexing data: {str(e)}"
             )
 
+    async def update_data_txt(self, file_content: bytes, force_reindex: bool = True) -> dict:
+        """
+        Cập nhật file data.txt
+        
+        Args:
+            file_content: Nội dung file mới
+            force_reindex: Có tự động reindex không
+            
+        Returns:
+            dict: Kết quả cập nhật
+        """
+        try:
+            LogUtil.log_info("Starting data.txt update", "CONTROLLER")
+            result = await self.rag_service.update_data_txt(file_content, force_reindex)
+            LogUtil.log_info("Data.txt update completed", "CONTROLLER")
+            return result
+        except Exception as e:
+            LogUtil.log_error("Error updating data.txt", "CONTROLLER", e)
+            raise HTTPException(
+                status_code=500,
+                detail=f"Error updating data.txt: {str(e)}"
+            )
+
+    async def update_data_json(self, file_content: bytes, force_reindex: bool = True) -> dict:
+        """
+        Cập nhật file data.json
+        
+        Args:
+            file_content: Nội dung file mới
+            force_reindex: Có tự động reindex không
+            
+        Returns:
+            dict: Kết quả cập nhật
+        """
+        try:
+            LogUtil.log_info("Starting data.json update", "CONTROLLER")
+            result = await self.rag_service.update_data_json(file_content, force_reindex)
+            LogUtil.log_info("Data.json update completed", "CONTROLLER")
+            return result
+        except Exception as e:
+            LogUtil.log_error("Error updating data.json", "CONTROLLER", e)
+            raise HTTPException(
+                status_code=500,
+                detail=f"Error updating data.json: {str(e)}"
+            )
+
     def get_basic_info(self) -> dict:
         """
         Lấy thông tin cơ bản của API

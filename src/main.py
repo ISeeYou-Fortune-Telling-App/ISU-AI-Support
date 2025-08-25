@@ -1,9 +1,10 @@
 # Import các thư viện cần thiết
-from fastapi import FastAPI        # Tạo web API
+from fastapi import FastAPI, UploadFile, File, Form        # Tạo web API
 import uvicorn                     # Máy chủ web để chạy API
 from controller.rag_controller import RAGController
 from dto.QueryRequest import QueryRequest
 from dto.QueryResponse import QueryResponse
+from dto.UpdateResponse import UpdateResponse
 
 # Khởi tạo ứng dụng FastAPI (tạo website API)
 app = FastAPI(
@@ -57,6 +58,44 @@ async def reindex_data():
     Dùng khi muốn cập nhật dữ liệu mới
     """
     return await rag_controller.reindex_data()
+
+@app.post("/update/data.txt", response_model=UpdateResponse)
+async def update_data_txt(
+    file: UploadFile = File(...),
+    force_reindex: bool = Form(True)
+):
+    """
+    Cập nhật file data.txt với file mới
+    
+    Args:
+        file: File mới để thay thế data.txt
+        force_reindex: Có tự động reindex sau khi update không
+        
+    Returns:
+        UpdateResponse với kết quả cập nhật
+    """
+    file_content = await file.read()
+    result = await rag_controller.update_data_txt(file_content, force_reindex)
+    return UpdateResponse(**result)
+
+@app.post("/update/data.json", response_model=UpdateResponse)
+async def update_data_json(
+    file: UploadFile = File(...),
+    force_reindex: bool = Form(True)
+):
+    """
+    Cập nhật file data.json với file mới
+    
+    Args:
+        file: File mới để thay thế data.json
+        force_reindex: Có tự động reindex sau khi update không
+        
+    Returns:
+        UpdateResponse với kết quả cập nhật
+    """
+    file_content = await file.read()
+    result = await rag_controller.update_data_json(file_content, force_reindex)
+    return UpdateResponse(**result)
 
 if __name__ == "__main__":
     # Chạy máy chủ web
